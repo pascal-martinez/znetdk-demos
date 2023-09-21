@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+	background: #F2F4FF;
+}
+.sc4 {
+	color: #FF0000;
+	background: #F2F4FF;
+}
+.sc5 {
+	font-weight: bold;
+	font-style: italic;
+	color: #000080;
+	background: #F2F4FF;
+}
+.sc6 {
+	color: #808080;
+	background: #F2F4FF;
+}
+.sc7 {
+	color: #808080;
+	background: #F2F4FF;
+}
+.sc10 {
+	font-weight: bold;
+	background: #F2F4FF;
+}
+.sc11 {
+	background: #F2F4FF;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc10">&lt;</span><span class="sc11">script</span><span class="sc10">&gt;</span><span class="sc0">
+    </span><span class="sc11">$</span><span class="sc10">(</span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+        </span><span class="sc11">$</span><span class="sc10">(</span><span class="sc6">"#demoformautocomplete"</span><span class="sc10">).</span><span class="sc11">zdkform</span><span class="sc10">({</span><span class="sc0">
+            </span><span class="sc11">complete</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+                </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">formData</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">$</span><span class="sc10">(</span><span class="sc5">this</span><span class="sc10">).</span><span class="sc11">zdkform</span><span class="sc10">(</span><span class="sc7">'getFormData'</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc5">true</span><span class="sc10">),</span><span class="sc0">
+                        </span><span class="sc11">message</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc6">"Form validated successfully:\n\n"</span><span class="sc10">;</span><span class="sc0">
+                </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc10">;</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">&lt;</span><span class="sc0"> </span><span class="sc11">formData</span><span class="sc10">.</span><span class="sc11">length</span><span class="sc10">;</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc10">++)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+                    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">inputValue</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">formData</span><span class="sc10">[</span><span class="sc11">i</span><span class="sc10">].</span><span class="sc11">value</span><span class="sc0"> </span><span class="sc10">===</span><span class="sc0"> </span><span class="sc6">""</span><span class="sc0"> </span><span class="sc10">?</span><span class="sc0"> </span><span class="sc6">"&lt;empty&gt;"</span><span class="sc0"> </span><span class="sc10">:</span><span class="sc0"> </span><span class="sc6">"'"</span><span class="sc0">
+                            </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">formData</span><span class="sc10">[</span><span class="sc11">i</span><span class="sc10">].</span><span class="sc11">value</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"'"</span><span class="sc10">;</span><span class="sc0">
+                    </span><span class="sc11">message</span><span class="sc0"> </span><span class="sc10">+=</span><span class="sc0"> </span><span class="sc6">"° "</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">formData</span><span class="sc10">[</span><span class="sc11">i</span><span class="sc10">].</span><span class="sc11">name</span><span class="sc0">
+                            </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">" = "</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc11">inputValue</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span class="sc6">"\n"</span><span class="sc10">;</span><span class="sc0">
+                </span><span class="sc10">}</span><span class="sc0">
+                </span><span class="sc11">alert</span><span class="sc10">(</span><span class="sc11">message</span><span class="sc10">);</span><span class="sc0">
+            </span><span class="sc10">}</span><span class="sc0">
+        </span><span class="sc10">});</span><span class="sc0">
+
+        </span><span class="sc11">$</span><span class="sc10">(</span><span class="sc7">'#demoformautocomplete .zdk-bt-refresh'</span><span class="sc10">).</span><span class="sc11">click</span><span class="sc10">(</span><span class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+            </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">formValues</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+                </span><span class="sc11">myautocomplete</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc6">"French"</span><span class="sc10">,</span><span class="sc0">
+                </span><span class="sc11">mytext</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc6">"my text"</span><span class="sc10">,</span><span class="sc0">
+                </span><span class="sc11">myothertext</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc6">"my other text"</span><span class="sc0">
+            </span><span class="sc10">};</span><span class="sc0">
+            </span><span class="sc11">$</span><span class="sc10">(</span><span class="sc6">"#demoformautocomplete"</span><span class="sc10">).</span><span class="sc11">zdkform</span><span class="sc10">(</span><span class="sc7">'init'</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">formValues</span><span class="sc10">);</span><span class="sc0">
+        </span><span class="sc10">});</span><span class="sc0">
+    </span><span class="sc10">});</span><span class="sc0">
+</span><span class="sc10">&lt;/</span><span class="sc11">script</span><span class="sc10">&gt;</span></div></body>
+</html>

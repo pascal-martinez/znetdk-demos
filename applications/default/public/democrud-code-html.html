@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+	font-weight: bold;
+}
+.sc1 {
+	color: #0000FF;
+}
+.sc3 {
+	color: #FF0000;
+}
+.sc4 {
+}
+.sc6 {
+	font-weight: bold;
+	color: #8000FF;
+}
+.sc7 {
+	font-weight: bold;
+	color: #8000FF;
+}
+.sc8 {
+}
+.sc9 {
+	color: #008000;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc9">&lt;!-- Actions bar --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;div</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"zdk-action-bar"</span><span class="sc8"> </span><span class="sc4">data-zdk-dialog</span><span class="sc8">=</span><span class="sc6">"demo-crud-dlg"</span><span class="sc8"> </span><span class="sc4">data-zdk-datatable</span><span class="sc8">=</span><span class="sc6">"demo-crud-table"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc9">&lt;!-- Action buttons --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"zdk-bt-add"</span><span class="sc1">&gt;</span><span class="sc0">New</span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"zdk-bt-edit"</span><span class="sc8"> </span><span class="sc4">data-zdk-noselection</span><span class="sc8">=</span><span class="sc6">"Please, select first a product to edit!"</span><span class="sc1">&gt;</span><span class="sc0">Edit</span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"zdk-bt-remove"</span><span class="sc8"> </span><span class="sc4">data-zdk-noselection</span><span class="sc8">=</span><span class="sc6">"Please, select first a product to remove!"</span><span class="sc8">
+            </span><span class="sc4">data-zdk-confirm</span><span class="sc8">=</span><span class="sc6">"Do you really want to remove the selected product?:Yes:No"</span><span class="sc8">
+            </span><span class="sc4">data-zdk-action</span><span class="sc8">=</span><span class="sc6">"democrudctrl:remove"</span><span class="sc1">&gt;</span><span class="sc0">Remove</span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+    </span><span class="sc9">&lt;!-- Number of rows per page --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;select</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"zdk-select-rows"</span><span class="sc8"> </span><span class="sc3">title</span><span class="sc8">=</span><span class="sc6">"Rows"</span><span class="sc1">&gt;</span><span class="sc0">  
+        </span><span class="sc1">&lt;option</span><span class="sc8"> </span><span class="sc3">value</span><span class="sc8">=</span><span class="sc6">"10"</span><span class="sc1">&gt;</span><span class="sc0">10</span><span class="sc1">&lt;/option&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;option</span><span class="sc8"> </span><span class="sc3">value</span><span class="sc8">=</span><span class="sc6">"20"</span><span class="sc1">&gt;</span><span class="sc0">20</span><span class="sc1">&lt;/option&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;option</span><span class="sc8"> </span><span class="sc3">value</span><span class="sc8">=</span><span class="sc6">"100"</span><span class="sc1">&gt;</span><span class="sc0">All</span><span class="sc1">&lt;/option&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/select&gt;</span><span class="sc0">
+    </span><span class="sc9">&lt;!-- Search form --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;div</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"zdk-filter-rows"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">title</span><span class="sc8">=</span><span class="sc6">"search criteria..."</span><span class="sc8"> </span><span class="sc4">data-zdk-action</span><span class="sc8">=</span><span class="sc6">"democrudctrl:suggestions"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"zdk-bt-clear"</span><span class="sc8"> </span><span class="sc3">title</span><span class="sc8">=</span><span class="sc6">"Reset the search field content..."</span><span class="sc1">&gt;&lt;/button&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"zdk-bt-search"</span><span class="sc8"> </span><span class="sc3">title</span><span class="sc8">=</span><span class="sc6">"Search the products that match the criteria..."</span><span class="sc8">
+                </span><span class="sc4">data-zdk-novalue</span><span class="sc8">=</span><span class="sc6">"Please, type in a criteria first."</span><span class="sc1">&gt;&lt;/button&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/div&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/div&gt;</span><span class="sc0">
+</span><span class="sc9">&lt;!-- Datatable --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;div</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"demo-crud-table"</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"zdk-datatable zdk-synchronize"</span><span class="sc8"> </span><span class="sc3">title</span><span class="sc8">=</span><span class="sc6">"products"</span><span class="sc8"> </span><span class="sc4">data-zdk-action</span><span class="sc8">=</span><span class="sc6">"democrudctrl:data"</span><span class="sc8">
+     </span><span class="sc4">data-zdk-paginator</span><span class="sc8">=</span><span class="sc6">"10"</span><span class="sc8"> </span><span class="sc4">data-zdk-columns</span><span class="sc8">=</span><span class="sc7">'[
+     {"field":"name", "headerText": "Product name", "sortable":true},
+     {"field":"part_number", "headerText": "Part number", "sortable":true},
+     {"field":"description", "headerText": "Description", "sortable":true,"tooltip":true},
+     {"field":"price_money", "headerText": "Price", "sortable":true}]'</span><span class="sc1">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/div&gt;</span><span class="sc0">
+</span><span class="sc9">&lt;!-- Form dialog --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;div</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"demo-crud-dlg"</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"zdk-modal"</span><span class="sc8"> </span><span class="sc3">title</span><span class="sc8">=</span><span class="sc6">"Product"</span><span class="sc8"> </span><span class="sc4">data-zdk-width</span><span class="sc8">=</span><span class="sc6">"340px"</span><span class="sc8">
+    </span><span class="sc4">data-zdk-confirm</span><span class="sc8">=</span><span class="sc6">"Do you want to cancel your changes?:Yes:No"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;form</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc7">'zdk-form'</span><span class="sc8"> </span><span class="sc4">data-zdk-action</span><span class="sc8">=</span><span class="sc6">"democrudctrl:save"</span><span class="sc8"> </span><span class="sc4">data-zdk-datatable</span><span class="sc8">=</span><span class="sc6">"demo-crud-table"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;label&gt;</span><span class="sc0">Part number</span><span class="sc1">&lt;/label&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"part_number"</span><span class="sc8"> </span><span class="sc3">maxlength</span><span class="sc8">=</span><span class="sc6">"10"</span><span class="sc8"> </span><span class="sc4">required</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;label&gt;</span><span class="sc0">Product name</span><span class="sc1">&lt;/label&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"name"</span><span class="sc8"> </span><span class="sc3">maxlength</span><span class="sc8">=</span><span class="sc6">"25"</span><span class="sc8"> </span><span class="sc4">required</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;label&gt;</span><span class="sc0">Description</span><span class="sc1">&lt;/label&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;textarea</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"description"</span><span class="sc8"> </span><span class="sc3">rows</span><span class="sc8">=</span><span class="sc6">"3"</span><span class="sc8"> </span><span class="sc3">maxlength</span><span class="sc8">=</span><span class="sc6">"200"</span><span class="sc1">&gt;&lt;/textarea&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;label&gt;</span><span class="sc0">Price</span><span class="sc1">&lt;/label&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"price"</span><span class="sc8"> </span><span class="sc3">placeholder</span><span class="sc8">=</span><span class="sc6">"format 999.99"</span><span class="sc8"> </span><span class="sc4">pattern</span><span class="sc8">=</span><span class="sc6">"^\d+\.?\d{0,2}$"</span><span class="sc8"> </span><span class="sc3">maxlength</span><span class="sc8">=</span><span class="sc6">"6"</span><span class="sc8"> </span><span class="sc4">required</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;input</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"id"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"hidden"</span><span class="sc1">&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"zdk-bt-save zdk-close-dialog"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"submit"</span><span class="sc1">&gt;</span><span class="sc0">Save</span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;button</span><span class="sc8"> </span><span class="sc3">class</span><span class="sc8">=</span><span class="sc6">"zdk-bt-cancel zdk-close-dialog"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"button"</span><span class="sc1">&gt;</span><span class="sc0">Cancel</span><span class="sc1">&lt;/button&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/form&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/div&gt;</span><span class="sc0">
+</span><span class="sc9">&lt;!-- Styles for the Datatable's columns --&gt;</span><span class="sc0"> 
+</span><span class="sc1">&lt;style&gt;</span><span class="sc0">
+    #demo-crud-table tr &gt; td:first-of-type, #demo-crud-table thead &gt; th:first-of-type {
+        width: 190px;
+    }
+
+    #demo-crud-table tr &gt; td:nth-of-type(2), #demo-crud-table thead &gt; th:nth-of-type(2) {
+        text-align:center;
+        width:90px;
+    }
+
+    #demo-crud-table tr &gt; td:nth-of-type(3), #demo-crud-table thead &gt; th:nth-of-type(3) {
+        text-overflow:ellipsis;
+    }
+
+    #demo-crud-table tr &gt; td:last-of-type, #demo-crud-table thead &gt; th:last-of-type {
+        text-align:right;
+        width:80px;
+    }
+</span><span class="sc1">&lt;/style&gt;</span></div></body>
+</html>

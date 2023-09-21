@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc18 {
+	color: #FF0000;
+	background: #FDF8E3;
+}
+.sc118 {
+	background: #FEFCF5;
+}
+.sc119 {
+	color: #808080;
+	background: #FEFCF5;
+}
+.sc120 {
+	color: #808080;
+	background: #FEFCF5;
+}
+.sc121 {
+	font-weight: bold;
+	color: #0000FF;
+	background: #FEFCF5;
+}
+.sc122 {
+	color: #FF8000;
+	background: #FEFCF5;
+}
+.sc123 {
+	color: #000080;
+	background: #FEFCF5;
+}
+.sc125 {
+	color: #008000;
+	background: #FEFCF5;
+}
+.sc127 {
+	color: #8000FF;
+	background: #FEFCF5;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc18">&lt;?php</span><span class="sc118">
+
+namespace app\controller</span><span class="sc127">;</span><span class="sc118">
+
+</span><span class="sc121">class</span><span class="sc118"> DemoCrudCtrl </span><span class="sc121">extends</span><span class="sc118"> \AppController </span><span class="sc127">{</span><span class="sc118">
+
+    </span><span class="sc121">static</span><span class="sc118"> </span><span class="sc121">protected</span><span class="sc118"> </span><span class="sc121">function</span><span class="sc118"> action_save</span><span class="sc127">()</span><span class="sc118"> </span><span class="sc127">{</span><span class="sc118">
+        </span><span class="sc125">// 1) Read POST parameter's values</span><span class="sc118">
+        </span><span class="sc123">$request</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc121">new</span><span class="sc118"> \Request</span><span class="sc127">();</span><span class="sc118">
+        </span><span class="sc123">$row</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$request</span><span class="sc127">-&gt;</span><span class="sc118">getValuesAsMap</span><span class="sc127">(</span><span class="sc120">'id'</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc120">'part_number'</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc120">'name'</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc120">'description'</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc120">'price'</span><span class="sc127">);</span><span class="sc118">
+
+        </span><span class="sc125">// 2) Store values into the database</span><span class="sc118">
+        </span><span class="sc123">$productsDAO</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc121">new</span><span class="sc118"> \app\model\ProductsDAO</span><span class="sc127">();</span><span class="sc118">
+        </span><span class="sc123">$response</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc121">new</span><span class="sc118"> \Response</span><span class="sc127">();</span><span class="sc118">
+        try </span><span class="sc127">{</span><span class="sc118">
+            </span><span class="sc123">$productID</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$productsDAO</span><span class="sc127">-&gt;</span><span class="sc118">store</span><span class="sc127">(</span><span class="sc123">$row</span><span class="sc127">);</span><span class="sc118">
+            </span><span class="sc123">$response</span><span class="sc127">-&gt;</span><span class="sc118">setSuccessMessage</span><span class="sc127">(</span><span class="sc118">'Save product'</span><span class="sc127">,</span><span class="sc118"> 
+                    \General</span><span class="sc127">::</span><span class="sc118">getFilledMessage</span><span class="sc127">(</span><span class="sc118">'Product %1 stored successfully.'</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$productID</span><span class="sc127">));</span><span class="sc118">
+        </span><span class="sc127">}</span><span class="sc118"> catch </span><span class="sc127">(\</span><span class="sc118">PDOException </span><span class="sc123">$ex</span><span class="sc127">)</span><span class="sc118"> </span><span class="sc127">{</span><span class="sc118">
+            </span><span class="sc123">$response</span><span class="sc127">-&gt;</span><span class="sc118">setFailedMessage</span><span class="sc127">(</span><span class="sc118">'Save product'</span><span class="sc127">,</span><span class="sc118">
+            \General</span><span class="sc127">::</span><span class="sc118">getFilledMessage</span><span class="sc127">(</span><span class="sc118">'Unable to store the product %1 (error %2)'</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$request</span><span class="sc127">-&gt;</span><span class="sc118">part_number
+                    </span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$ex</span><span class="sc127">-&gt;</span><span class="sc118">getCode</span><span class="sc127">()));</span><span class="sc118">
+        </span><span class="sc127">}</span><span class="sc118">
+
+        </span><span class="sc125">// 3) Return JSON response</span><span class="sc118">
+        </span><span class="sc121">return</span><span class="sc118"> </span><span class="sc123">$response</span><span class="sc127">;</span><span class="sc118">
+    </span><span class="sc127">}</span><span class="sc118">
+
+    </span><span class="sc121">static</span><span class="sc118"> </span><span class="sc121">protected</span><span class="sc118"> </span><span class="sc121">function</span><span class="sc118"> action_remove</span><span class="sc127">()</span><span class="sc118"> </span><span class="sc127">{</span><span class="sc118">
+        </span><span class="sc125">// 1) Get row ID from the POST parameter</span><span class="sc118">
+        </span><span class="sc123">$request</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc121">new</span><span class="sc118"> \Request</span><span class="sc127">();</span><span class="sc118">
+        </span><span class="sc123">$rowID</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$request</span><span class="sc127">-&gt;</span><span class="sc118">id</span><span class="sc127">;</span><span class="sc118">
+
+        </span><span class="sc125">// 2) Remove the specified row from the database </span><span class="sc118">
+        </span><span class="sc123">$productsDAO</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc121">new</span><span class="sc118"> \app\model\ProductsDAO</span><span class="sc127">();</span><span class="sc118">
+        </span><span class="sc123">$response</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc121">new</span><span class="sc118"> \Response</span><span class="sc127">();</span><span class="sc118">
+        try </span><span class="sc127">{</span><span class="sc118">
+            </span><span class="sc123">$productsDAO</span><span class="sc127">-&gt;</span><span class="sc118">remove</span><span class="sc127">(</span><span class="sc123">$rowID</span><span class="sc127">);</span><span class="sc118">
+            </span><span class="sc123">$response</span><span class="sc127">-&gt;</span><span class="sc118">setSuccessMessage</span><span class="sc127">(</span><span class="sc118">'Remove product'</span><span class="sc127">,</span><span class="sc118"> 'Product removed successfully.'</span><span class="sc127">);</span><span class="sc118">
+        </span><span class="sc127">}</span><span class="sc118"> catch </span><span class="sc127">(\</span><span class="sc118">PDOException </span><span class="sc123">$ex</span><span class="sc127">)</span><span class="sc118"> </span><span class="sc127">{</span><span class="sc118">
+            </span><span class="sc123">$response</span><span class="sc127">-&gt;</span><span class="sc118">setFailedMessage</span><span class="sc127">(</span><span class="sc118">'Remove product'</span><span class="sc127">,</span><span class="sc118">
+                    \General</span><span class="sc127">::</span><span class="sc118">getFilledMessage</span><span class="sc127">(</span><span class="sc118">'Unable to remove the product %1 (error %2).'</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$rowID</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$ex</span><span class="sc127">-&gt;</span><span class="sc118">getCode</span><span class="sc127">()));</span><span class="sc118">
+        </span><span class="sc127">}</span><span class="sc118">
+
+        </span><span class="sc125">// 3) Return JSON response</span><span class="sc118">
+        </span><span class="sc121">return</span><span class="sc118"> </span><span class="sc123">$response</span><span class="sc127">;</span><span class="sc118">
+    </span><span class="sc127">}</span><span class="sc118">
+
+    </span><span class="sc121">static</span><span class="sc118"> </span><span class="sc121">protected</span><span class="sc118"> </span><span class="sc121">function</span><span class="sc118"> action_data</span><span class="sc127">()</span><span class="sc118"> </span><span class="sc127">{</span><span class="sc118">
+        </span><span class="sc125">// 1) Read POST parameters</span><span class="sc118">
+        </span><span class="sc123">$request</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc121">new</span><span class="sc118"> \Request</span><span class="sc127">();</span><span class="sc118">
+        </span><span class="sc125">// --&gt; Pagination</span><span class="sc118">
+        </span><span class="sc123">$first</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$request</span><span class="sc127">-&gt;</span><span class="sc118">first</span><span class="sc127">;</span><span class="sc118"> </span><span class="sc123">$rows</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$request</span><span class="sc127">-&gt;</span><span class="sc118">rows</span><span class="sc127">;</span><span class="sc118">
+        </span><span class="sc125">// --&gt; Sort criteria</span><span class="sc118">
+        </span><span class="sc123">$sortField</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$request</span><span class="sc127">-&gt;</span><span class="sc118">sortfield</span><span class="sc127">;</span><span class="sc118"> </span><span class="sc123">$sortOrder</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$request</span><span class="sc127">-&gt;</span><span class="sc118">sortorder</span><span class="sc127">;</span><span class="sc118">
+        </span><span class="sc123">$sortCriteria</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> is_null</span><span class="sc127">(</span><span class="sc123">$sortField</span><span class="sc127">)</span><span class="sc118"> </span><span class="sc127">?</span><span class="sc118"> </span><span class="sc120">'name'</span><span class="sc118"> </span><span class="sc127">:</span><span class="sc118"> </span><span class="sc123">$sortField</span><span class="sc118"> </span><span class="sc127">.</span><span class="sc118"> </span><span class="sc127">(</span><span class="sc118">is_null</span><span class="sc127">(</span><span class="sc123">$sortOrder</span><span class="sc127">)</span><span class="sc118"> </span><span class="sc127">?</span><span class="sc118"> </span><span class="sc120">' ASC'</span><span class="sc118"> </span><span class="sc127">:</span><span class="sc118"> </span><span class="sc123">$sortOrder</span><span class="sc118"> </span><span class="sc127">==</span><span class="sc118"> </span><span class="sc122">1</span><span class="sc118"> </span><span class="sc127">?</span><span class="sc118"> </span><span class="sc120">' ASC'</span><span class="sc118"> </span><span class="sc127">:</span><span class="sc118"> </span><span class="sc120">' DESC'</span><span class="sc127">);</span><span class="sc118">
+        </span><span class="sc125">// --&gt; Filter criteria</span><span class="sc118">
+        </span><span class="sc123">$criteria</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$request</span><span class="sc127">-&gt;</span><span class="sc118">search_criteria</span><span class="sc127">;</span><span class="sc118">
+        </span><span class="sc123">$keyword</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc120">'%'</span><span class="sc118"> </span><span class="sc127">.</span><span class="sc118"> </span><span class="sc123">$criteria</span><span class="sc118"> </span><span class="sc127">.</span><span class="sc118"> </span><span class="sc120">'%'</span><span class="sc127">;</span><span class="sc118">
+        
+        </span><span class="sc125">// 2) Request rows from the database</span><span class="sc118">
+        </span><span class="sc123">$response</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc121">new</span><span class="sc118"> \Response</span><span class="sc127">();</span><span class="sc118">
+        </span><span class="sc123">$productsDAO</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc121">new</span><span class="sc118"> \app\model\ProductsDAO</span><span class="sc127">();</span><span class="sc118">
+        </span><span class="sc123">$productsDAO</span><span class="sc127">-&gt;</span><span class="sc118">setKeywordAsFilter</span><span class="sc127">(</span><span class="sc123">$keyword</span><span class="sc127">);</span><span class="sc118">
+        </span><span class="sc123">$productsFound</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc121">array</span><span class="sc127">();</span><span class="sc118">
+        try </span><span class="sc127">{</span><span class="sc118">
+            </span><span class="sc123">$response</span><span class="sc127">-&gt;</span><span class="sc118">total </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$productsDAO</span><span class="sc127">-&gt;</span><span class="sc118">getCount</span><span class="sc127">();</span><span class="sc118">
+            </span><span class="sc123">$productsDAO</span><span class="sc127">-&gt;</span><span class="sc118">setSortCriteria</span><span class="sc127">(</span><span class="sc123">$sortCriteria</span><span class="sc127">);</span><span class="sc118">
+            </span><span class="sc123">$productsDAO</span><span class="sc127">-&gt;</span><span class="sc118">setLimit</span><span class="sc127">(</span><span class="sc123">$first</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$rows</span><span class="sc127">);</span><span class="sc118">
+
+            </span><span class="sc121">while</span><span class="sc127">(</span><span class="sc123">$row</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$productsDAO</span><span class="sc127">-&gt;</span><span class="sc118">getResult</span><span class="sc127">())</span><span class="sc118"> </span><span class="sc127">{</span><span class="sc118">
+                </span><span class="sc123">$productsFound</span><span class="sc127">[]</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$row</span><span class="sc127">;</span><span class="sc118">
+            </span><span class="sc127">}</span><span class="sc118">
+            </span><span class="sc123">$response</span><span class="sc127">-&gt;</span><span class="sc118">rows </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$productsFound</span><span class="sc127">;</span><span class="sc118">
+            </span><span class="sc123">$response</span><span class="sc127">-&gt;</span><span class="sc118">success </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc121">TRUE</span><span class="sc127">;</span><span class="sc118">
+        </span><span class="sc127">}</span><span class="sc118"> catch </span><span class="sc127">(\</span><span class="sc118">PDOException </span><span class="sc123">$ex</span><span class="sc127">)</span><span class="sc118"> </span><span class="sc127">{</span><span class="sc118">
+            </span><span class="sc123">$response</span><span class="sc127">-&gt;</span><span class="sc118">setFailedMessage</span><span class="sc127">(</span><span class="sc119">"Request data"</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc119">"Unable to request the products (error '"</span><span class="sc118"> </span><span class="sc127">.</span><span class="sc118"> </span><span class="sc123">$ex</span><span class="sc127">-&gt;</span><span class="sc118">getCode</span><span class="sc127">()</span><span class="sc118"> </span><span class="sc127">.</span><span class="sc118"> </span><span class="sc119">"')"</span><span class="sc127">);</span><span class="sc118">
+        </span><span class="sc127">}</span><span class="sc118">
+        
+        </span><span class="sc125">// 3) Return JSON response</span><span class="sc118">
+        </span><span class="sc121">return</span><span class="sc118"> </span><span class="sc123">$response</span><span class="sc127">;</span><span class="sc118">
+    </span><span class="sc127">}</span><span class="sc118">
+
+    </span><span class="sc121">static</span><span class="sc118"> </span><span class="sc121">protected</span><span class="sc118"> </span><span class="sc121">function</span><span class="sc118"> action_suggestions</span><span class="sc127">()</span><span class="sc118"> </span><span class="sc127">{</span><span class="sc118">
+        </span><span class="sc125">// 1) Read POST parameters */</span><span class="sc118">
+        </span><span class="sc123">$request</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc121">new</span><span class="sc118"> \Request</span><span class="sc127">();</span><span class="sc118">
+        
+        </span><span class="sc125">// 2) Request the rows matching the criterium from the database</span><span class="sc118">
+        </span><span class="sc123">$productsDAO</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc121">new</span><span class="sc118"> \app\model\ProductsDAO</span><span class="sc127">();</span><span class="sc118">
+        </span><span class="sc123">$productsDAO</span><span class="sc127">-&gt;</span><span class="sc118">setNameAsFilter</span><span class="sc127">(</span><span class="sc120">'%'</span><span class="sc118"> </span><span class="sc127">.</span><span class="sc118"> </span><span class="sc123">$request</span><span class="sc127">-&gt;</span><span class="sc118">criteria </span><span class="sc127">.</span><span class="sc118"> </span><span class="sc120">'%'</span><span class="sc127">);</span><span class="sc118">
+        </span><span class="sc123">$productsDAO</span><span class="sc127">-&gt;</span><span class="sc118">setSortCriteria</span><span class="sc127">(</span><span class="sc120">'name'</span><span class="sc127">);</span><span class="sc118">
+        </span><span class="sc123">$productsDAO</span><span class="sc127">-&gt;</span><span class="sc118">setLimit</span><span class="sc127">(</span><span class="sc122">0</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc122">10</span><span class="sc127">);</span><span class="sc118">
+        
+        </span><span class="sc123">$response</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc121">new</span><span class="sc118"> \Response</span><span class="sc127">();</span><span class="sc118">
+        </span><span class="sc123">$previousSuggestion</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc120">''</span><span class="sc127">;</span><span class="sc118">
+        </span><span class="sc123">$suggestions</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc121">array</span><span class="sc127">();</span><span class="sc118">
+        try </span><span class="sc127">{</span><span class="sc118">
+            </span><span class="sc121">while</span><span class="sc127">(</span><span class="sc123">$row</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$productsDAO</span><span class="sc127">-&gt;</span><span class="sc118">getResult</span><span class="sc127">())</span><span class="sc118"> </span><span class="sc127">{</span><span class="sc118">
+                </span><span class="sc121">if</span><span class="sc118"> </span><span class="sc127">(</span><span class="sc123">$row</span><span class="sc127">[</span><span class="sc120">'name'</span><span class="sc127">]</span><span class="sc118"> </span><span class="sc127">!==</span><span class="sc118"> </span><span class="sc123">$previousSuggestion</span><span class="sc127">)</span><span class="sc118"> </span><span class="sc127">{</span><span class="sc118">
+                    </span><span class="sc123">$suggestions</span><span class="sc127">[][</span><span class="sc120">'label'</span><span class="sc127">]</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$row</span><span class="sc127">[</span><span class="sc120">'name'</span><span class="sc127">];</span><span class="sc118">
+                    </span><span class="sc123">$previousSuggestion</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$row</span><span class="sc127">[</span><span class="sc120">'name'</span><span class="sc127">];</span><span class="sc118">
+                </span><span class="sc127">}</span><span class="sc118">
+            </span><span class="sc127">}</span><span class="sc118">
+            </span><span class="sc123">$response</span><span class="sc127">-&gt;</span><span class="sc118">setResponse</span><span class="sc127">(</span><span class="sc123">$suggestions</span><span class="sc127">);</span><span class="sc118">
+        </span><span class="sc127">}</span><span class="sc118"> catch </span><span class="sc127">(\</span><span class="sc118">PDOException </span><span class="sc123">$ex</span><span class="sc127">)</span><span class="sc118"> </span><span class="sc127">{</span><span class="sc118">
+            </span><span class="sc123">$response</span><span class="sc127">-&gt;</span><span class="sc118">setFailedMessage</span><span class="sc127">(</span><span class="sc119">"Request suggestions"</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc119">"Unable to request the products (error '"</span><span class="sc118"> </span><span class="sc127">.</span><span class="sc118"> </span><span class="sc123">$ex</span><span class="sc127">-&gt;</span><span class="sc118">getCode</span><span class="sc127">()</span><span class="sc118"> </span><span class="sc127">.</span><span class="sc118"> </span><span class="sc119">"')"</span><span class="sc127">);</span><span class="sc118">
+        </span><span class="sc127">}</span><span class="sc118">
+
+        </span><span class="sc125">// 3) Return JSON response</span><span class="sc118">
+        </span><span class="sc121">return</span><span class="sc118"> </span><span class="sc123">$response</span><span class="sc127">;</span><span class="sc118">
+    </span><span class="sc127">}</span><span class="sc118">
+
+</span><span class="sc127">}</span><span class="sc118">
+</span></div></body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc18 {
+	color: #FF0000;
+	background: #FDF8E3;
+}
+.sc118 {
+	background: #FEFCF5;
+}
+.sc120 {
+	color: #808080;
+	background: #FEFCF5;
+}
+.sc121 {
+	font-weight: bold;
+	color: #0000FF;
+	background: #FEFCF5;
+}
+.sc123 {
+	color: #000080;
+	background: #FEFCF5;
+}
+.sc125 {
+	color: #008000;
+	background: #FEFCF5;
+}
+.sc127 {
+	color: #8000FF;
+	background: #FEFCF5;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc18">&lt;?php</span><span class="sc118">
+
+namespace app\controller</span><span class="sc127">;</span><span class="sc118">
+
+</span><span class="sc121">class</span><span class="sc118"> DemoForm </span><span class="sc121">extends</span><span class="sc118"> \AppController </span><span class="sc127">{</span><span class="sc118">
+
+    </span><span class="sc121">static</span><span class="sc118"> </span><span class="sc121">protected</span><span class="sc118"> </span><span class="sc121">function</span><span class="sc118"> action_validate</span><span class="sc127">()</span><span class="sc118"> </span><span class="sc127">{</span><span class="sc118">
+        </span><span class="sc125">// JSON Response</span><span class="sc118">
+        </span><span class="sc123">$response</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc121">new</span><span class="sc118"> \Response</span><span class="sc127">();</span><span class="sc118">
+        </span><span class="sc125">// Data validation</span><span class="sc118">
+        </span><span class="sc123">$validator</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc121">new</span><span class="sc118"> \app\validator\MyValidator</span><span class="sc127">();</span><span class="sc118">
+        </span><span class="sc121">if</span><span class="sc118"> </span><span class="sc127">(</span><span class="sc123">$validator</span><span class="sc127">-&gt;</span><span class="sc118">validate</span><span class="sc127">())</span><span class="sc118"> </span><span class="sc127">{</span><span class="sc118">
+            </span><span class="sc123">$response</span><span class="sc127">-&gt;</span><span class="sc118">setSuccessMessage</span><span class="sc127">(</span><span class="sc120">'Server-side validation'</span><span class="sc127">,</span><span class="sc118">
+                </span><span class="sc120">'The form data has been validated successfully.'</span><span class="sc127">);</span><span class="sc118">            
+        </span><span class="sc127">}</span><span class="sc118"> </span><span class="sc121">else</span><span class="sc118"> </span><span class="sc127">{</span><span class="sc118">
+            </span><span class="sc123">$response</span><span class="sc127">-&gt;</span><span class="sc118">setFailedMessage</span><span class="sc127">(</span><span class="sc120">'Server-side validation'</span><span class="sc127">,</span><span class="sc118">
+                </span><span class="sc123">$validator</span><span class="sc127">-&gt;</span><span class="sc118">getErrorMessage</span><span class="sc127">(),</span><span class="sc118"> </span><span class="sc123">$validator</span><span class="sc127">-&gt;</span><span class="sc118">getErrorVariable</span><span class="sc127">());</span><span class="sc118">
+        </span><span class="sc127">}</span><span class="sc118">
+        </span><span class="sc125">// Response returned to the front controller</span><span class="sc118">
+        </span><span class="sc121">return</span><span class="sc118"> </span><span class="sc123">$response</span><span class="sc127">;</span><span class="sc118">
+    </span><span class="sc127">}</span><span class="sc118">
+
+</span><span class="sc127">}</span><span class="sc118">
+</span></div></body>
+</html>

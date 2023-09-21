@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc18 {
+	color: #FF0000;
+	background: #FDF8E3;
+}
+.sc118 {
+	background: #FEFCF5;
+}
+.sc120 {
+	color: #808080;
+	background: #FEFCF5;
+}
+.sc121 {
+	font-weight: bold;
+	color: #0000FF;
+	background: #FEFCF5;
+}
+.sc123 {
+	color: #000080;
+	background: #FEFCF5;
+}
+.sc125 {
+	color: #008000;
+	background: #FEFCF5;
+}
+.sc127 {
+	color: #8000FF;
+	background: #FEFCF5;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc18">&lt;?php</span><span class="sc118">
+
+namespace app\controller</span><span class="sc127">;</span><span class="sc118">
+
+</span><span class="sc121">class</span><span class="sc118"> DemoForm </span><span class="sc121">extends</span><span class="sc118"> \AppController </span><span class="sc127">{</span><span class="sc118">
+
+    </span><span class="sc121">static</span><span class="sc118"> </span><span class="sc121">protected</span><span class="sc118"> </span><span class="sc121">function</span><span class="sc118"> action_suggestedlang</span><span class="sc127">()</span><span class="sc118"> </span><span class="sc127">{</span><span class="sc118">
+        </span><span class="sc125">// Get keyword to find out</span><span class="sc118">
+        </span><span class="sc123">$request</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc121">new</span><span class="sc118"> \Request</span><span class="sc127">();</span><span class="sc118">
+        </span><span class="sc123">$keyword</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$request</span><span class="sc127">-&gt;</span><span class="sc118">query</span><span class="sc127">;</span><span class="sc118">
+
+        </span><span class="sc125">// Construct the list of suggestions</span><span class="sc118">
+        </span><span class="sc123">$allLang</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> self</span><span class="sc127">::</span><span class="sc118">getAllLanguages</span><span class="sc127">();</span><span class="sc118">
+        </span><span class="sc123">$suggestions</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc121">array</span><span class="sc127">();</span><span class="sc118">
+        </span><span class="sc121">foreach</span><span class="sc127">(</span><span class="sc123">$allLang</span><span class="sc118"> </span><span class="sc121">as</span><span class="sc118"> </span><span class="sc123">$value</span><span class="sc127">)</span><span class="sc118"> </span><span class="sc127">{</span><span class="sc118">
+            </span><span class="sc121">if</span><span class="sc127">(</span><span class="sc118">stristr</span><span class="sc127">(</span><span class="sc123">$value</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$keyword</span><span class="sc127">))</span><span class="sc118"> </span><span class="sc127">{</span><span class="sc118">
+                </span><span class="sc123">$suggestions</span><span class="sc127">[][</span><span class="sc120">'label'</span><span class="sc127">]</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$value</span><span class="sc127">;</span><span class="sc118">
+            </span><span class="sc127">}</span><span class="sc118">
+        </span><span class="sc127">}</span><span class="sc118">        
+        </span><span class="sc125">// JSON Response</span><span class="sc118">
+        </span><span class="sc123">$response</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc121">new</span><span class="sc118"> \Response</span><span class="sc127">();</span><span class="sc118">
+        </span><span class="sc123">$response</span><span class="sc127">-&gt;</span><span class="sc118">setResponse</span><span class="sc127">(</span><span class="sc123">$suggestions</span><span class="sc127">);</span><span class="sc118">
+        </span><span class="sc121">return</span><span class="sc118"> </span><span class="sc123">$response</span><span class="sc127">;</span><span class="sc118">
+    </span><span class="sc127">}</span><span class="sc118">
+
+    </span><span class="sc121">static</span><span class="sc118"> </span><span class="sc121">private</span><span class="sc118"> </span><span class="sc121">function</span><span class="sc118"> getAllLanguages</span><span class="sc127">()</span><span class="sc118"> </span><span class="sc127">{</span><span class="sc118">
+        </span><span class="sc121">return</span><span class="sc118"> </span><span class="sc121">array</span><span class="sc127">(</span><span class="sc120">'Abkhaz'</span><span class="sc127">,</span><span class="sc120">'Afar'</span><span class="sc127">,</span><span class="sc120">'Afrikaans'</span><span class="sc127">,</span><span class="sc120">'Akan'</span><span class="sc127">,</span><span class="sc120">'Albanian'</span><span class="sc127">,</span><span class="sc120">'Amharic'</span><span class="sc127">,</span><span class="sc118">
+            </span><span class="sc120">'Arabic'</span><span class="sc127">,</span><span class="sc120">'Aragonese'</span><span class="sc127">,</span><span class="sc120">'Armenian'</span><span class="sc127">,</span><span class="sc120">'Assamese'</span><span class="sc127">,</span><span class="sc120">'Avaric'</span><span class="sc127">,</span><span class="sc120">'Avestan'</span><span class="sc127">,</span><span class="sc120">'Aymara'</span><span class="sc127">,</span><span class="sc118">
+            </span><span class="sc120">'Azerbaijani'</span><span class="sc127">,</span><span class="sc120">'Bambara'</span><span class="sc127">,</span><span class="sc120">'Bashkir'</span><span class="sc127">,</span><span class="sc120">'Basque'</span><span class="sc127">,</span><span class="sc120">'Belarusian'</span><span class="sc127">,</span><span class="sc120">'Bengali'</span><span class="sc127">,</span><span class="sc120">'Bihari'</span><span class="sc127">,</span><span class="sc118">
+            </span><span class="sc120">'Bislama'</span><span class="sc127">,</span><span class="sc120">'Bosnian'</span><span class="sc127">,</span><span class="sc120">'Breton'</span><span class="sc127">,</span><span class="sc120">'Bulgarian'</span><span class="sc127">,</span><span class="sc120">'Burmese'</span><span class="sc127">,</span><span class="sc120">'Catalan'</span><span class="sc127">,</span><span class="sc120">'Chamorro'</span><span class="sc127">,</span><span class="sc118">
+            </span><span class="sc120">'Chechen'</span><span class="sc127">,</span><span class="sc120">'Chichewa'</span><span class="sc127">,</span><span class="sc120">'Chinese'</span><span class="sc127">,</span><span class="sc120">'Chuvash'</span><span class="sc127">,</span><span class="sc120">'Cornish'</span><span class="sc127">,</span><span class="sc120">'Corsican'</span><span class="sc127">,</span><span class="sc120">'Cree'</span><span class="sc127">,</span><span class="sc118">
+            </span><span class="sc120">'Croatian'</span><span class="sc127">,</span><span class="sc120">'Czech'</span><span class="sc127">,</span><span class="sc120">'Danish'</span><span class="sc127">,</span><span class="sc120">'Divehi'</span><span class="sc127">,</span><span class="sc120">'Dutch'</span><span class="sc127">,</span><span class="sc120">'Dzongkha'</span><span class="sc127">,</span><span class="sc120">'English'</span><span class="sc127">,</span><span class="sc120">'Esperanto'</span><span class="sc127">,</span><span class="sc118">
+            </span><span class="sc120">'Estonian'</span><span class="sc127">,</span><span class="sc120">'Ewe'</span><span class="sc127">,</span><span class="sc120">'Faroese'</span><span class="sc127">,</span><span class="sc120">'Fijian'</span><span class="sc127">,</span><span class="sc120">'Finnish'</span><span class="sc127">,</span><span class="sc120">'French'</span><span class="sc127">,</span><span class="sc120">'Fula'</span><span class="sc127">,</span><span class="sc120">'Galician'</span><span class="sc127">,</span><span class="sc118">
+            </span><span class="sc120">'Georgian'</span><span class="sc127">,</span><span class="sc120">'German'</span><span class="sc127">,</span><span class="sc120">'Greek, Modern'</span><span class="sc127">,</span><span class="sc120">'Guaraní'</span><span class="sc127">,</span><span class="sc120">'Gujarati'</span><span class="sc127">,</span><span class="sc120">'Haitian'</span><span class="sc127">,</span><span class="sc120">'Hausa'</span><span class="sc127">,</span><span class="sc118">
+            </span><span class="sc120">'Hebrew (modern)'</span><span class="sc127">,</span><span class="sc120">'Herero'</span><span class="sc127">,</span><span class="sc120">'Hindi'</span><span class="sc127">,</span><span class="sc120">'Hiri Motu'</span><span class="sc127">,</span><span class="sc120">'Hungarian'</span><span class="sc127">,</span><span class="sc120">'Interlingua'</span><span class="sc127">,</span><span class="sc118">
+            </span><span class="sc120">'Indonesian'</span><span class="sc127">,</span><span class="sc120">'Interlingue'</span><span class="sc127">,</span><span class="sc120">'Irish'</span><span class="sc127">,</span><span class="sc120">'Igbo'</span><span class="sc127">,</span><span class="sc120">'Inupiaq'</span><span class="sc127">,</span><span class="sc120">'Ido'</span><span class="sc127">,</span><span class="sc120">'Icelandic'</span><span class="sc127">,</span><span class="sc118">
+            </span><span class="sc120">'Italian'</span><span class="sc127">,</span><span class="sc120">'Inuktitut'</span><span class="sc127">,</span><span class="sc120">'Japanese'</span><span class="sc127">,</span><span class="sc120">'Javanese'</span><span class="sc127">,</span><span class="sc120">'Kalaallisut'</span><span class="sc127">,</span><span class="sc120">'Kannada'</span><span class="sc127">,</span><span class="sc118">
+            </span><span class="sc120">'Kanuri'</span><span class="sc127">,</span><span class="sc120">'Kashmiri'</span><span class="sc127">,</span><span class="sc120">'Kazakh'</span><span class="sc127">,</span><span class="sc120">'Khmer'</span><span class="sc127">,</span><span class="sc120">'Kikuyu'</span><span class="sc127">,</span><span class="sc120">'Kinyarwanda'</span><span class="sc127">,</span><span class="sc120">'Kyrgyz'</span><span class="sc127">,</span><span class="sc118">
+            </span><span class="sc120">'Komi'</span><span class="sc127">,</span><span class="sc120">'Kongo'</span><span class="sc127">,</span><span class="sc120">'Korean'</span><span class="sc127">,</span><span class="sc120">'Kurdish'</span><span class="sc127">,</span><span class="sc120">'Kwanyama'</span><span class="sc127">,</span><span class="sc120">'Latin'</span><span class="sc127">,</span><span class="sc120">'Luxembourgish'</span><span class="sc127">,</span><span class="sc118">
+            </span><span class="sc120">'Ganda'</span><span class="sc127">,</span><span class="sc120">'Limburgish'</span><span class="sc127">,</span><span class="sc120">'Lingala'</span><span class="sc127">,</span><span class="sc120">'Lao'</span><span class="sc127">,</span><span class="sc120">'Lithuanian'</span><span class="sc127">,</span><span class="sc120">'Luba-Katanga'</span><span class="sc127">,</span><span class="sc120">'Latvian'</span><span class="sc127">,</span><span class="sc118">
+            </span><span class="sc120">'Manx'</span><span class="sc127">,</span><span class="sc120">'Macedonian'</span><span class="sc127">,</span><span class="sc120">'Malagasy'</span><span class="sc127">,</span><span class="sc120">'Malay'</span><span class="sc127">,</span><span class="sc120">'Malayalam'</span><span class="sc127">,</span><span class="sc120">'Maltese'</span><span class="sc127">,</span><span class="sc120">'Marathi'</span><span class="sc127">,</span><span class="sc118">
+            </span><span class="sc120">'Marshallese'</span><span class="sc127">,</span><span class="sc120">'Mongolian'</span><span class="sc127">,</span><span class="sc120">'Nauru'</span><span class="sc127">,</span><span class="sc120">'Navajo'</span><span class="sc127">,</span><span class="sc120">'North Ndebele'</span><span class="sc127">,</span><span class="sc120">'Nepali'</span><span class="sc127">,</span><span class="sc118">
+            </span><span class="sc120">'Ndonga'</span><span class="sc127">,</span><span class="sc120">'Norwegian Nynorsk'</span><span class="sc127">,</span><span class="sc120">'Norwegian'</span><span class="sc127">,</span><span class="sc120">'Nuosu'</span><span class="sc127">,</span><span class="sc120">'South Ndebele'</span><span class="sc127">,</span><span class="sc120">'Occitan'</span><span class="sc127">,</span><span class="sc118">
+            </span><span class="sc120">'Ojibwe'</span><span class="sc127">,</span><span class="sc120">'Old Church Slavonic'</span><span class="sc127">,</span><span class="sc120">'Oromo'</span><span class="sc127">,</span><span class="sc120">'Oriya'</span><span class="sc127">,</span><span class="sc120">'Ossetian'</span><span class="sc127">,</span><span class="sc120">'Panjabi'</span><span class="sc127">,</span><span class="sc118">
+            </span><span class="sc120">'Persian (Farsi)'</span><span class="sc127">,</span><span class="sc120">'Polish'</span><span class="sc127">,</span><span class="sc120">'Pashto, Pushto'</span><span class="sc127">,</span><span class="sc120">'Portuguese'</span><span class="sc127">,</span><span class="sc120">'Quechua'</span><span class="sc127">,</span><span class="sc118">
+            </span><span class="sc120">'Romansh'</span><span class="sc127">,</span><span class="sc120">'Kirundi'</span><span class="sc127">,</span><span class="sc120">'Romanian'</span><span class="sc127">,</span><span class="sc120">'Russian'</span><span class="sc127">,</span><span class="sc120">'Sanskrit'</span><span class="sc127">,</span><span class="sc120">'Sardinian'</span><span class="sc127">,</span><span class="sc120">'Sindhi'</span><span class="sc127">,</span><span class="sc118">
+            </span><span class="sc120">'Northern Sami'</span><span class="sc127">,</span><span class="sc120">'Samoan'</span><span class="sc127">,</span><span class="sc120">'Sango'</span><span class="sc127">,</span><span class="sc120">'Serbian'</span><span class="sc127">,</span><span class="sc120">'Scottish Gaelic'</span><span class="sc127">,</span><span class="sc120">'Shona'</span><span class="sc127">,</span><span class="sc118">
+            </span><span class="sc120">'Sinhala'</span><span class="sc127">,</span><span class="sc120">'Slovak'</span><span class="sc127">,</span><span class="sc120">'Slovene'</span><span class="sc127">,</span><span class="sc120">'Somali'</span><span class="sc127">,</span><span class="sc120">'Southern Sotho'</span><span class="sc127">,</span><span class="sc120">'South Azerbaijani'</span><span class="sc127">,</span><span class="sc118">
+            </span><span class="sc120">'Spanish'</span><span class="sc127">,</span><span class="sc120">'Sundanese'</span><span class="sc127">,</span><span class="sc120">'Swahili'</span><span class="sc127">,</span><span class="sc120">'Swati'</span><span class="sc127">,</span><span class="sc120">'Swedish'</span><span class="sc127">,</span><span class="sc120">'Tamil'</span><span class="sc127">,</span><span class="sc120">'Telugu'</span><span class="sc127">,</span><span class="sc118">
+            </span><span class="sc120">'Tajik'</span><span class="sc127">,</span><span class="sc120">'Thai'</span><span class="sc127">,</span><span class="sc120">'Tigrinya'</span><span class="sc127">,</span><span class="sc120">'Tibetan'</span><span class="sc127">,</span><span class="sc120">'Turkmen'</span><span class="sc127">,</span><span class="sc120">'Tagalog'</span><span class="sc127">,</span><span class="sc120">'Tswana'</span><span class="sc127">,</span><span class="sc120">'Tonga'</span><span class="sc127">,</span><span class="sc118">
+            </span><span class="sc120">'Turkish'</span><span class="sc127">,</span><span class="sc120">'Tsonga'</span><span class="sc127">,</span><span class="sc120">'Tatar'</span><span class="sc127">,</span><span class="sc120">'Twi'</span><span class="sc127">,</span><span class="sc120">'Tahitian'</span><span class="sc127">,</span><span class="sc120">'Uyghur'</span><span class="sc127">,</span><span class="sc120">'Ukrainian'</span><span class="sc127">,</span><span class="sc120">'Urdu'</span><span class="sc127">,</span><span class="sc118">
+            </span><span class="sc120">'Uzbek'</span><span class="sc127">,</span><span class="sc120">'Venda'</span><span class="sc127">,</span><span class="sc120">'Vietnamese'</span><span class="sc127">,</span><span class="sc120">'Volapük'</span><span class="sc127">,</span><span class="sc120">'Walloon'</span><span class="sc127">,</span><span class="sc120">'Welsh'</span><span class="sc127">,</span><span class="sc120">'Wolof'</span><span class="sc127">,</span><span class="sc118">
+            </span><span class="sc120">'Western Frisian'</span><span class="sc127">,</span><span class="sc120">'Xhosa'</span><span class="sc127">,</span><span class="sc120">'Yiddish'</span><span class="sc127">,</span><span class="sc120">'Yoruba'</span><span class="sc127">,</span><span class="sc120">'Zhuang'</span><span class="sc127">,</span><span class="sc120">'Zulu'</span><span class="sc127">);</span><span class="sc118">
+    </span><span class="sc127">}</span><span class="sc118">
+
+</span><span class="sc127">}</span><span class="sc118">
+</span></div></body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc18 {
+	color: #FF0000;
+	background: #FDF8E3;
+}
+.sc118 {
+	background: #FEFCF5;
+}
+.sc119 {
+	color: #808080;
+	background: #FEFCF5;
+}
+.sc120 {
+	color: #808080;
+	background: #FEFCF5;
+}
+.sc121 {
+	font-weight: bold;
+	color: #0000FF;
+	background: #FEFCF5;
+}
+.sc123 {
+	color: #000080;
+	background: #FEFCF5;
+}
+.sc127 {
+	color: #8000FF;
+	background: #FEFCF5;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc18">&lt;?php</span><span class="sc118">
+
+namespace app\model</span><span class="sc127">;</span><span class="sc118">
+
+</span><span class="sc121">class</span><span class="sc118"> ProductsDAO </span><span class="sc121">extends</span><span class="sc118"> \DAO </span><span class="sc127">{</span><span class="sc118">
+
+    </span><span class="sc121">protected</span><span class="sc118"> </span><span class="sc121">function</span><span class="sc118"> initDaoProperties</span><span class="sc127">()</span><span class="sc118"> </span><span class="sc127">{</span><span class="sc118">
+        </span><span class="sc123">$this</span><span class="sc127">-&gt;</span><span class="sc118">table </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc119">"products"</span><span class="sc127">;</span><span class="sc118">
+        </span><span class="sc123">$this</span><span class="sc127">-&gt;</span><span class="sc118">moneyColumns </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc121">array</span><span class="sc127">(</span><span class="sc120">'price'</span><span class="sc127">);</span><span class="sc118">
+    </span><span class="sc127">}</span><span class="sc118">
+
+    </span><span class="sc121">public</span><span class="sc118"> </span><span class="sc121">function</span><span class="sc118"> setKeywordAsFilter</span><span class="sc127">(</span><span class="sc123">$keyword</span><span class="sc127">)</span><span class="sc118"> </span><span class="sc127">{</span><span class="sc118">
+        </span><span class="sc123">$this</span><span class="sc127">-&gt;</span><span class="sc118">filterClause  </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc119">" WHERE LOWER(part_number) LIKE LOWER(?)"</span><span class="sc118">
+            </span><span class="sc127">.</span><span class="sc118"> </span><span class="sc119">" OR LOWER(name) LIKE LOWER(?)"</span><span class="sc118">
+            </span><span class="sc127">.</span><span class="sc118"> </span><span class="sc119">" OR LOWER(description) LIKE LOWER(?)"</span><span class="sc127">;</span><span class="sc118">
+        </span><span class="sc123">$this</span><span class="sc127">-&gt;</span><span class="sc118">setFilterCriteria</span><span class="sc127">(</span><span class="sc123">$keyword</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$keyword</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$keyword</span><span class="sc127">);</span><span class="sc118">
+    </span><span class="sc127">}</span><span class="sc118">
+    
+    </span><span class="sc121">public</span><span class="sc118"> </span><span class="sc121">function</span><span class="sc118"> setNameAsFilter</span><span class="sc127">(</span><span class="sc123">$name</span><span class="sc127">)</span><span class="sc118"> </span><span class="sc127">{</span><span class="sc118">
+        </span><span class="sc123">$this</span><span class="sc127">-&gt;</span><span class="sc118">filterClause </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc119">" WHERE LOWER(name) LIKE LOWER(?)"</span><span class="sc127">;</span><span class="sc118">
+        </span><span class="sc123">$this</span><span class="sc127">-&gt;</span><span class="sc118">setFilterCriteria</span><span class="sc127">(</span><span class="sc123">$name</span><span class="sc127">);</span><span class="sc118">
+    </span><span class="sc127">}</span><span class="sc118">
+</span><span class="sc127">}</span></div></body>
+</html>

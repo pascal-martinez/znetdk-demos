@@ -1,0 +1,196 @@
+/* Styles dedicated to the custom application developed with ZnetDK */
+
+/* Home page styles of the ZnetDK reference application */
+span.success {
+	color:green;
+}
+span.failed {
+	color:red;
+}
+
+/* Home page styles */
+#menu-home div > ul, #znetdk-home-view  div > ul {
+	padding-left:15px;
+}
+
+#znetdk-home-view  div > ul ul {
+	padding-left:20px;
+}
+
+#menu-home li, #znetdk-home-view li {
+	line-height:20px;
+}
+
+#znetdk_logo {
+	clear:right;
+	width:200px;
+	margin-bottom:20px;
+}
+
+#primeui_logo {
+	clear:right;
+}
+
+#home_logos {
+	float:left;
+	margin:10px 20px 0 0;
+	width:200px;
+}
+
+#home_teaser {
+	float:left;
+}
+
+/* Theme view styles */
+.theme-thumbnail {
+	float:left;
+	margin:10px 10px 20px 0;
+	width:110px;
+}
+.theme-image {
+	width:100px;
+	height:84px;
+	cursor:pointer;
+}
+.theme-name {
+	text-align:center;
+}
+
+/* Exemple view styles */
+#menu-example .widget-wrapper, #znetdk-example-view .widget-wrapper {
+	margin:10px 10px 5px 0;
+}
+
+#menu-example .left, #znetdk-example-view .left {
+	float:left;
+}
+
+#example-datepicker {
+	margin-top:10px;
+}
+
+#example-fieldset {
+	width:785px;
+	float:left;
+}
+
+.pui-picklist .pui-picklist-list {
+	height:130px;
+}
+
+.pui-picklist .pui-picklist-buttons {
+	margin:15px 10px 0;
+}
+
+.pui-tree {
+	width:300px;
+}
+
+#example-datatable {
+	width:483px;
+}
+
+/* CRUD demo view styles */
+img#loading {
+	position:absolute;
+	display:none;
+	top:30%;
+	right:50%;
+}
+
+#action_buttons {
+	float:left;
+}
+
+#bt_reset_data {
+	margin-top:5px;
+}
+
+#nb_rows_selection {
+	float:left;
+	margin-left:15px;
+}
+
+#nb_rows_selection label {
+	margin:0 10px 0 2px;
+}
+
+#nb_rows_selection td:first-of-type  {
+	padding:0 0 2px 0;
+}
+
+form#search_form {
+	float:right;
+}
+
+#edit_dialog .zdk-form-entry > label {
+    width:120px;
+}
+
+#datatable tr > td:first-of-type, #datatable thead > th:first-of-type {
+	width: 190px;
+}
+
+#datatable tr > td:nth-of-type(2), #datatable thead > th:nth-of-type(2) {
+	text-align:center;
+	width:90px;
+}
+
+#datatable tr > td:nth-of-type(3), #datatable thead > th:nth-of-type(3) {
+	text-overflow:ellipsis;
+}
+
+#datatable tr > td:last-of-type, #datatable thead > th:last-of-type {
+	text-align:right;
+	width:80px;
+}
+
+#crud-source-code-link {
+    display: inline;
+    margin-left:20px;
+}
+
+#teaser_crud_code {
+    margin: 0 0 5px 0;
+}
+
+/* Help pages */
+#zdk_help_window .pui-dialog-content img.help {
+	max-width: 90%;
+	display:table;
+	box-shadow:2px 2px 2px 2px #A9A9A9;
+	border:5px solid #FFFFFF;
+	margin:15px auto;
+}
+
+#zdk_help_window .pui-dialog-content img.icon {
+	vertical-align:middle;
+}
+
+/* Form demos */
+.pui-accordion .pui-accordion-content {
+    padding:3px;
+}
+
+#demoupload .zdk-form-entry {
+    height:230px;
+}
+
+#demoupload div.zdk-inputfile>img {
+    max-height: 180px;
+    max-width: 210px;
+}
+
+/* Form demo styles*/
+#accordion_code_rbgrp iframe, #accordion_code iframe, #accordion_code_val iframe,
+#accordion_code_loadata iframe, #accordion_code_autoc iframe, #accordion_code_server iframe,
+#accordion_crud_code iframe, #accordion_code_upload iframe {
+    width:99%;
+    height:370px;
+    border:none;
+    background-color: white;
+}
+
+#accordion_crud_code iframe {
+    height:280px;
+}
