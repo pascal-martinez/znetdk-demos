@@ -69,7 +69,7 @@ define('LC_DEMO_INFO_MSG_UPDATE', 'Le produit a été modifié.');
 define('LC_DEMO_INFO_MSG_REMOVE', 'Le produit a été supprimé.');
 define('LC_DEMO_INFO_MSG_RESET', 'Les données de démonstration ont été restaurées.');
 define('LC_DEMO_LINK_SOURCE_CODE', "Voir le <a href='#' onclick='znetdk.showMenuView(\"crudsourcecode\");'>code source</a> de cette démo");
-define('LC_DEMO_TEASER_SOURCE_CODE', "Ce code source est téléchargeable sur <a href='http://www.znetdk.fr/telechargements#democrud' target='_blank'>www.znetdk.fr</a>");
+define('LC_DEMO_TEASER_SOURCE_CODE', "Ce code source est téléchargeable sur <a href='https://www.znetdk.fr/telechargements#democrud' target='_blank'>www.znetdk.fr</a>");
 
 /* Form Demo page labels */
 define('LC_DEMOFORM_DESC', 'Les widgets PrimeUI affichés dans ce formulaire
