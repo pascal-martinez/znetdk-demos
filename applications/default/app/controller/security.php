@@ -16,7 +16,7 @@ class Security extends \AppController {
             $response->success = false;
             $response->msg = LC_MSG_ERR_LOGIN;
         } else {
-            if ($login_name === 'znetdk' && $password === 'demo') {
+            if ($login_name === 'znetdk' && $password === 'this1sDemoPwd') {
                 if ($changePasswordRequested) {
                     $response->success = false;
                     if ($request->login_password !== $request->login_password2) {
