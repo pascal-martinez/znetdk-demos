@@ -157,7 +157,7 @@
   padding-right: 6px;
 }
 #zdk-custom-menu ul ul > li:hover > ul {
-  left: 180px;
+  left: 220px;
   top: 0;
   opacity: 1;
 }
@@ -168,9 +168,12 @@
 }
 #zdk-custom-menu ul ul li a {
   text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-weight: 400;
-  padding: 11px 25px;
-  width: 180px;
+  padding: 11px 17px;
+  width: 220px;
   color: #d3eced;
   /*background: #00a0b0;*/
   /*box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1), 1px 1px 1px rgba(0, 0, 0, 0.1), -1px 1px 1px rgba(0, 0, 0, 0.1);*/
