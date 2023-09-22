@@ -23,8 +23,7 @@
                 <button class="zdk-bt-refresh" type="button">Default values</button>
             </form>
             <p class="ui-state-highlight ui-corner-all" style="padding:10px;">
-                <span class="ui-icon ui-icon-info" style="float: left; margin:0 3px 0 0;"></span>
-                <?php echo LC_DEMOAUTOCOMPL_DESC; ?>
+                <i class="fa fa-info-circle fa-lg"></i>  <?php echo LC_DEMOAUTOCOMPL_DESC; ?>
             </p>
         </td>
         <td style="vertical-align:top;">

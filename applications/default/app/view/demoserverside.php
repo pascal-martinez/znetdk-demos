@@ -37,15 +37,14 @@
                     <input type="email" name="fld_email" placeholder="contact@notexist.zz">
                     <!-- Type url -->
                     <label>Type url</label>
-                    <input type="url" name="fld_url" placeholder="http://www.znetdk.fr">
+                    <input type="url" name="fld_url" placeholder="https://www.znetdk.fr">
                 </fieldset>
                 <!-- Action buttons -->
                 <button class="zdk-bt-yes" type="submit">Submit</button>
                 <button class="zdk-bt-reset" type="reset">Reset</button>
             </form>
             <p class="ui-state-highlight ui-corner-all" style="padding:10px;">
-                <span class="ui-icon ui-icon-info" style="float: left; margin:0 3px 0 0;"></span>
-                <?php echo LC_DEMOSERVERSIDE_DESC; ?>
+                <i class="fa fa-info-circle fa-lg"></i>  <?php echo LC_DEMOSERVERSIDE_DESC; ?>
             </p>
         </td>
         <td style="vertical-align:top;">

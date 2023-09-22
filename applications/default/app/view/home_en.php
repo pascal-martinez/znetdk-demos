@@ -1,19 +1,19 @@
 <div id="home_logos">
-    <a href="http://www.znetdk.fr"><img id="znetdk_logo" src="<?php echo ZNETDK_APP_URI; ?>images/logoznetdk.png" alt="ZnetDK logo"/></a>
-    <a href="http://www.primefaces.org/primeui/" target="_blank"><img id="primeui_logo" src="<?php echo ZNETDK_APP_URI; ?>images/logoprimeui.png" alt="PrimeUI logo"/></a>
+    <a href="https://www.znetdk.fr"><img id="znetdk_logo" src="<?php echo ZNETDK_ROOT_URI; ?>engine/public/images/favicons/android-chrome-256x256.png" alt="ZnetDK logo"/></a>
+    <a href="https://www.primefaces.org/primeui/" target="_blank"><img id="primeui_logo" src="<?php echo ZNETDK_APP_URI; ?>images/logoprimeui.png" alt="PrimeUI logo"/></a>
 </div>
 <div id="home_teaser">
     <h2>Welcome to ZnetDK demo application</h2>
-    <p>This demonstration was made from the starter application delivered with the Development Kit <a href="http://www.znetdk.fr">ZnetDK</a>.</p>
+    <p>This demonstration was made from the starter application delivered with the Development Kit <a href="https://www.znetdk.fr">ZnetDK</a>.</p>
     <p>It allows you to experiment in particular :</p>
     <ul>
         <li>The built-in <strong>authentication</strong> mechanism and the <strong>expiration</strong> of the user's session (set to 2 min. for this demo).</li>
         <li>The different <strong>themes</strong> you can apply to PrimeUI widgets (menu <a id="home_theme_link" href="#"><?php echo LC_MENU_THEMES; ?></a>).</li>
-        <li>Several <strong>PrimeUI components</strong> in action (<a href="http://www.primefaces.org/primeui/#datatable" target="_blank">Datatable</a>,
-                <a href="http://www.primefaces.org/primeui/#button" target="_blank">Button</a>, 
-                <a href="http://www.primefaces.org/primeui/#paginator" target="_blank">Paginator</a>,
-                <a href="http://www.primefaces.org/primeui/#dialog" target="_blank">Dialog</a>,
-                <a href="http://www.primefaces.org/primeui/#autocomplete" target="_blank">AutoComplete</a> ...):
+        <li>Several <strong>PrimeUI components</strong> in action (<a href="https://www.primefaces.org/primeui/#datatable" target="_blank">Datatable</a>,
+                <a href="https://www.primefaces.org/primeui/#button" target="_blank">Button</a>, 
+                <a href="https://www.primefaces.org/primeui/#paginator" target="_blank">Paginator</a>,
+                <a href="https://www.primefaces.org/primeui/#dialog" target="_blank">Dialog</a>,
+                <a href="https://www.primefaces.org/primeui/#autocomplete" target="_blank">AutoComplete</a> ...):
             <ul>
                 <li>Menu <a id="home_crud_link" href="#"><?php echo LC_MENU_SHOWCRUDDEMO;?></a></li>
                 <li>Menu <a id="home_form_link" href="#"><?php echo LC_MENU_DEMOZNETDKFORM;?></a></li>

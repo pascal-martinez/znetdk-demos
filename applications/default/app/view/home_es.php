@@ -1,19 +1,19 @@
 <div id="home_logos">
-    <a href="http://www.znetdk.fr"><img id="znetdk_logo" src="<?php echo ZNETDK_APP_URI; ?>images/logoznetdk.png" alt="ZnetDK logo"/></a>
-    <a href="http://www.primefaces.org/primeui/" target="_blank"><img id="primeui_logo" src="<?php echo ZNETDK_APP_URI; ?>images/logoprimeui.png" alt="PrimeUI logo"/></a>
+    <a href="https://www.znetdk.fr"><img id="znetdk_logo" src="<?php echo ZNETDK_ROOT_URI; ?>engine/public/images/favicons/android-chrome-256x256.png" alt="ZnetDK logo"/></a>
+    <a href="https://www.primefaces.org/primeui/" target="_blank"><img id="primeui_logo" src="<?php echo ZNETDK_APP_URI; ?>images/logoprimeui.png" alt="PrimeUI logo"/></a>
 </div>
 <div id="home_teaser">
     <h2>Bienvenido en la aplicación de demostración de ZnetDK</h2>
-    <p>Esta demostración fue realizada a partir de la aplicación de despegue entregada con el Kit de Desarrollo <a href="http://www.znetdk.fr">ZnetDK</a>.</p>
+    <p>Esta demostración fue realizada a partir de la aplicación de despegue entregada con el Kit de Desarrollo <a href="https://www.znetdk.fr">ZnetDK</a>.</p>
     <p>Le permite experimentar en particulario :</p>
     <ul>
         <li>El mecanismo de <strong>autenticación</strong> y la <strong>expiración</strong> de la sesión del usuario (cada 2 min. en este demo).</li>
         <li>Los differentes <strong>temas</strong> aplicables a los componentes gráficos PrimeUI (menú <a id="home_theme_link" href="#"><?php echo LC_MENU_THEMES; ?></a>).</li>
-        <li>Varios <strong>componentes PrimeUI</strong> en acción (<a href="http://www.primefaces.org/primeui/#datatable" target="_blank">Datatable</a>,
-            <a href="http://www.primefaces.org/primeui/#button" target="_blank">Button</a>, 
-            <a href="http://www.primefaces.org/primeui/#paginator" target="_blank">Paginator</a>,
-            <a href="http://www.primefaces.org/primeui/#dialog" target="_blank">Dialog</a>,
-            <a href="http://www.primefaces.org/primeui/#autocomplete" target="_blank">AutoComplete</a> ...):
+        <li>Varios <strong>componentes PrimeUI</strong> en acción (<a href="https://www.primefaces.org/primeui/#datatable" target="_blank">Datatable</a>,
+            <a href="https://www.primefaces.org/primeui/#button" target="_blank">Button</a>, 
+            <a href="https://www.primefaces.org/primeui/#paginator" target="_blank">Paginator</a>,
+            <a href="https://www.primefaces.org/primeui/#dialog" target="_blank">Dialog</a>,
+            <a href="https://www.primefaces.org/primeui/#autocomplete" target="_blank">AutoComplete</a> ...):
             <ul>
                 <li>Menú <a id="home_crud_link" href="#"><?php echo LC_MENU_SHOWCRUDDEMO;?></a></li>
                 <li>Menú <a id="home_form_link" href="#"><?php echo LC_MENU_DEMOZNETDKFORM;?></a></li>
