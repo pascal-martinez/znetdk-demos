@@ -1,5 +1,5 @@
 /* Styles dedicated to the custom application developed with ZnetDK */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 /* reset */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{
@@ -100,19 +100,35 @@ strong {
     margin-left:15px;
 }
 
+div.zdk-user-panel {
+    width:auto;
+    min-width: 190px;
+    max-width: 360px;
+}
+
+#zdk-profile-view li {
+    text-align:center;
+}
+
+#zdk-profile-view .pui-menuitem-link {
+    width: 94%;
+}
+
 #zdk-profile-view li.username{
     margin-top:5px;
     font-weight:bold;
     font-size:1.1em;
-    text-align:center;
 }
 
 #zdk-profile-view li.usermail{
-    text-align:center;
+    word-wrap: break-word;
 }
 
 #zdk-profile-view li.changepwd{
     margin-top:10px;
+}
+#zdk-profile-view li.my-user-rights {
+    margin-top:5px;
 }
 
 #zdk-header, #zdk-footer {
@@ -124,7 +140,7 @@ strong {
 }
 
 #zdk-header a {
-    color:#00444B;
+    color:#d3eced;
     font-size:0.9em;
 }
 
@@ -335,4 +351,11 @@ strong {
 /* Styles specifically applied for the application */
 p.ui-state-highlight, p.ui-state-error {
     font-size: 0.9em;
+}
+
+.pui-dialog-titlebar > i.fa  {
+    float: left;
+    position: relative;
+    top: 6px;
+    margin-right: 5px;
 }
