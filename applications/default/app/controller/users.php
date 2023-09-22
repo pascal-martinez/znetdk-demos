@@ -3,6 +3,10 @@
 namespace app\controller;
 
 class Users extends \controller\Users {
+    
+    static public function isActionAllowed($action) {
+        return TRUE;
+    }
 
     // Action methods
     static protected function action_all() {
@@ -10,38 +14,38 @@ class Users extends \controller\Users {
         $request = new \Request();
         $sortfield = $request->sortfield;
         $sortorder = $request->sortorder;
-        $sortCriteria = isset($sortfield) && isset($sortorder) ? $sortfield . ($sortorder == -1 ? ' DESC' : '') : 'login_name';
-		$searchCriteria = json_decode($request->search_criteria, TRUE);		
-		$users = array();
-		if (is_array($searchCriteria) && key_exists('status', $searchCriteria) 
-			&& is_numeric($searchCriteria['status']) && $searchCriteria['status'] < 1) {
-				// No row returned
-		} else {
-			$users[] = array('user_id' => 1, 'login_name' => 'j_deer', 'login_password' => \General::getDummyPassword(),
-				'user_name' => 'John Deer', 'user_email' => 'j_deer@znetdk.fr', 'full_menu_access' => '0', 'menu_access' => '',
-				'expiration_date' => '2014-10-16', 'user_enabled' => '1', 'user_profiles' => 'Consultant',
-				'profiles[]' => array(3), 'login_password2' => \General::getDummyPassword(),
-				'expiration_date_locale' => \Convert::W3CtoLocaleDate('2014-10-16'), 'has_expired' => '1');
-			$users[] = array('user_id' => 2, 'login_name' => 'p_martinez', 'login_password' => \General::getDummyPassword(),
-				'user_name' => 'Pascal Martinez', 'user_email' => 'p_martinez@znetdk.fr', 'full_menu_access' => '1', 'menu_access' => LC_FORM_LBL_USER_MENU_ACCESS_FULL,
-				'expiration_date' => '2015-01-31', 'user_enabled' => '1', 'user_profiles' => 'Manager,
-						Basic user', 'profiles[]' => array(1, 2), 'login_password2' => \General::getDummyPassword(),
-				'expiration_date_locale' => \Convert::W3CtoLocaleDate('2015-01-31'), 'has_expired' => '1');
-			$users[] = array('user_id' => 3, 'login_name' => 'j_valjean', 'login_password' => \General::getDummyPassword(),
-				'user_name' => 'Jean Valjean', 'user_email' => 'j_valjean@znetdk.fr', 'full_menu_access' => '0', 'menu_access' => '',
-				'expiration_date' => '2014-12-25', 'user_enabled' => '0', 'user_profiles' => 'Basic user',
-				'profiles[]' => array(2), 'login_password2' => \General::getDummyPassword(),
-				'expiration_date_locale' => \Convert::W3CtoLocaleDate('2014-12-25'), 'has_expired' => '1');
-			$users[] = array('user_id' => 4, 'login_name' => 'e_zion', 'login_password' => \General::getDummyPassword(),
-				'user_name' => 'Eva Zion', 'user_email' => 'e_zion@znetdk.fr', 'full_menu_access' => '1', 'menu_access' => LC_FORM_LBL_USER_MENU_ACCESS_FULL,
-				'expiration_date' => '2015-04-03', 'user_enabled' => '1', 'user_profiles' => 'Manager',
-				'profiles[]' => array(3), 'login_password2' => \General::getDummyPassword(),
-				'expiration_date_locale' => \Convert::W3CtoLocaleDate('2015-04-03'), 'has_expired' => '1');		
-			/* Sort users */
-			$sortfield = isset($sortfield) ? $sortfield : 'login_name';
-			$sortorder = isset($sortorder) ? intval($sortorder) : 1;
-			usort($users, $sortorder === 1 ? self::sort_asc($sortfield) : self::sort_desc($sortfield));
-		}
+        $searchCriteria = $request->search_criteria === NULL ? NULL 
+                        : json_decode($request->search_criteria, TRUE);		
+        $users = array();
+        if (is_array($searchCriteria) && key_exists('status', $searchCriteria) 
+                && is_numeric($searchCriteria['status']) && $searchCriteria['status'] < 1) {
+                        // No row returned
+        } else {
+            $users[] = array('user_id' => 1, 'login_name' => 'j_deer', 'login_password' => \General::getDummyPassword(),
+                    'user_name' => 'John Deer', 'user_email' => 'j_deer@znetdk.fr', 'full_menu_access' => '0', 'menu_access' => '',
+                    'expiration_date' => '2014-10-16', 'user_enabled' => '1', 'user_profiles' => 'Consultant',
+                    'profiles[]' => array(3), 'login_password2' => \General::getDummyPassword(),
+                    'expiration_date_locale' => \Convert::W3CtoLocaleDate('2014-10-16'), 'has_expired' => '1');
+            $users[] = array('user_id' => 2, 'login_name' => 'p_martinez', 'login_password' => \General::getDummyPassword(),
+                    'user_name' => 'Pascal Martinez', 'user_email' => 'p_martinez@znetdk.fr', 'full_menu_access' => '1', 'menu_access' => LC_FORM_LBL_USER_MENU_ACCESS_FULL,
+                    'expiration_date' => '2015-01-31', 'user_enabled' => '1', 'user_profiles' => 'Manager,
+                                    Basic user', 'profiles[]' => array(1, 2), 'login_password2' => \General::getDummyPassword(),
+                    'expiration_date_locale' => \Convert::W3CtoLocaleDate('2015-01-31'), 'has_expired' => '1');
+            $users[] = array('user_id' => 3, 'login_name' => 'j_valjean', 'login_password' => \General::getDummyPassword(),
+                    'user_name' => 'Jean Valjean', 'user_email' => 'j_valjean@znetdk.fr', 'full_menu_access' => '0', 'menu_access' => '',
+                    'expiration_date' => '2014-12-25', 'user_enabled' => '0', 'user_profiles' => 'Basic user',
+                    'profiles[]' => array(2), 'login_password2' => \General::getDummyPassword(),
+                    'expiration_date_locale' => \Convert::W3CtoLocaleDate('2014-12-25'), 'has_expired' => '1');
+            $users[] = array('user_id' => 4, 'login_name' => 'e_zion', 'login_password' => \General::getDummyPassword(),
+                    'user_name' => 'Eva Zion', 'user_email' => 'e_zion@znetdk.fr', 'full_menu_access' => '1', 'menu_access' => LC_FORM_LBL_USER_MENU_ACCESS_FULL,
+                    'expiration_date' => '2015-04-03', 'user_enabled' => '1', 'user_profiles' => 'Manager',
+                    'profiles[]' => array(3), 'login_password2' => \General::getDummyPassword(),
+                    'expiration_date_locale' => \Convert::W3CtoLocaleDate('2015-04-03'), 'has_expired' => '1');		
+            /* Sort users */
+            $sortfield = isset($sortfield) ? $sortfield : 'login_name';
+            $sortorder = isset($sortorder) ? intval($sortorder) : 1;
+            usort($users, $sortorder === 1 ? self::sort_asc($sortfield) : self::sort_desc($sortfield));
+        }
         // JSON Response
         $response = new \Response();
         $response->rows = self::getInHtml($users);
