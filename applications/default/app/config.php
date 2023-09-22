@@ -7,10 +7,18 @@
 * YOU CAN FREELY CUSTOMIZE THE CONTENT OF THIS FILE
 */
 
+define('DEMO_NBR', 3);
+
 /** Page layout choosen for the application.
  *  @return 'classic'|'office'|'custom' Name of the layout used by the application.
  */
-define('CFG_PAGE_LAYOUT','custom');
+if (DEMO_NBR === 1) {
+    define('CFG_PAGE_LAYOUT','classic');
+} elseif (DEMO_NBR === 2) {
+    define('CFG_PAGE_LAYOUT','office');
+} else {
+    define('CFG_PAGE_LAYOUT','custom');
+}
 
 /** Is online help enabled?
  * @return boolean true when online help facility is enabled, false when disabled.
@@ -18,11 +26,25 @@ define('CFG_PAGE_LAYOUT','custom');
 define('CFG_HELP_ENABLED',true);
 
 /** Relative path of the custom CSS file of the application */
-define('CFG_APPLICATION_CSS','applications/' . ZNETDK_APP_NAME . '/public/css/demo.css');
+if (DEMO_NBR === 3) {
+    define('CFG_APPLICATION_CSS', serialize([
+        'applications/' . ZNETDK_APP_NAME . '/public/css/layout-custom.css',
+        'applications/' . ZNETDK_APP_NAME . '/public/css/menu.css',
+        'applications/' . ZNETDK_APP_NAME . '/public/css/demo.css'
+    ]));
+} else {
+    define('CFG_APPLICATION_CSS','applications/' . ZNETDK_APP_NAME . '/public/css/demo.css');   
+}
 
 /** Relative path of the Javascript file specially developed for the application */
-define('CFG_APP_JS','applications/' . ZNETDK_APP_NAME . '/public/js/myapp.js');
-
+if (DEMO_NBR === 3) {
+    define('CFG_APP_JS', serialize([
+        'applications/' . ZNETDK_APP_NAME . '/public/js/menu.js',
+        'applications/' . ZNETDK_APP_NAME . '/public/js/myapp.js'
+    ]));
+} else {
+    define('CFG_APP_JS','applications/' . ZNETDK_APP_NAME . '/public/js/myapp.js');
+}
 /** Is multilingual translation enabled for your application?
  * @return boolean Value true if multilingual is enabled
  */
@@ -31,7 +53,7 @@ define('CFG_MULTI_LANG_ENABLED',true);
 /** Session Time out in minutes
  * @return integer Number of minutes without user activity before his session expires
  */
-define('CFG_SESSION_TIMEOUT',1);
+define('CFG_SESSION_TIMEOUT',5);
 
 /** Is authentication required?
  * @return boolean Value true if the user must authenticate to access to the
@@ -64,7 +86,14 @@ define('CFG_SQL_APPL_PWD',null);
  * @return string Name of the theme choosen for the application.<br>
  * For example: 'znetdk', 'flat-blue', 'aristo', 'south-street' ...
  */
-define('CFG_THEME','flat-blue');
+if (DEMO_NBR === 1) {
+    define('CFG_THEME','z-mono-airyblue');
+} elseif (DEMO_NBR === 2) {
+    define('CFG_THEME','z-mono-bodacious');
+} else {
+    define('CFG_THEME','flat-blue');
+}
+
 
 /** Load Development version of the PrimeUI & ZnetDK widgets for debug purpose */
-define('CFG_DEV_JS_ENABLED',TRUE);
+define('CFG_DEV_JS_ENABLED',FALSE);
