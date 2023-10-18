@@ -16,7 +16,7 @@
 <html lang="<?php echo $language; ?>">
 	<head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <?php self::renderMetaTags($metaDescription, $metaKeywords, $metaAuthor); ?>
+<?php self::renderMetaTags($metaDescription, $metaKeywords, $metaAuthor); ?>
         <title><?php echo $pageTitle; ?></title>
 <?php if (CFG_NON_MOBILE_PWA_ENABLED) :
     $faviconDir = ZNETDK_ROOT_URI . CFG_MOBILE_FAVICON_DIR . '/';
@@ -24,7 +24,7 @@
 endif; ?>
         <style>.js #zdk-fouc{display: none;}</style>
         <script>document.documentElement.className='js';</script>
-        <?php self::renderDependencies(); ?>
+<?php self::renderDependencies('css'); ?>
 	</head>
     <body id="zdk-fouc" data-ui-token="<?php echo \UserSession::setUIToken(); ?>" data-appver="<?php echo CFG_APPLICATION_VERSION; ?>"<?php echo CFG_NON_MOBILE_PWA_ENABLED ? ' data-service-worker-url="'.CFG_MOBILE_SERVICE_WORKER_URL.'"' : ''; ?>>
 		<div id="zdk-messages"></div><div id="zdk-critical-err"></div>
@@ -46,18 +46,18 @@ endif; ?>
         <?php self::renderNavigationMenu('custom',$controller); ?>
         <div id="zdk-navi-toolbar">
             <div id="zdk-breadcrumb">
-                    <div class="icone"></div>
-                    <?php self::renderBreadcrumb($controller); ?>
+                <div class="icone"></div>
+                <?php self::renderBreadcrumb($controller); ?>
             </div>
             <div id="zdk-language-area-wrapper">
-                    <div class="icone"></div>
-                    <?php self::renderLangSelection(); ?>
+                <div class="icone"></div>
+<?php self::renderLangSelection(); ?>
             </div>
             <div id="zdk-help-area" data-zdk-helptitle="<?php echo LC_FORM_TITLE_HELP; ?>"
                  data-zdk-helpclosebutton="<?php echo LC_BTN_CLOSE; ?>"
                      <?php if(!CFG_HELP_ENABLED){echo 'class="ui-helper-hidden"';} ?>>
-                    <div class="icone"></div>
-                    <a href="#"><?php echo LC_HEAD_LNK_HELP; ?></a>
+                <div class="icone"></div>
+                <a href="#"><?php echo LC_HEAD_LNK_HELP; ?></a>
             </div>
         </div>
         <?php self::renderCustomContent($controller); ?>
@@ -68,6 +68,7 @@ endif; ?>
             <span class="second"><?php echo LC_FOOTER_CENTER; ?></span>
             <span class="third"><?php echo LC_FOOTER_RIGHT; ?></span>
         </div>
+<?php self::renderDependencies('js'); ?>
         <script>document.getElementById('zdk-fouc').style.display='block';</script>
     </body>
 </html>
