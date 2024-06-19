@@ -14,4 +14,4 @@ These applications are published under the version 3 of GPL General Public Licen
 ## INSTALLATION
 1. Download and install the latest version of ZnetDK (see https://znetdk.fr/installation),
 2. Replace the `ZNETDK_INSTALL_DIR/applications/default/` directory by the [`/applications/default/`](/applications/default/) of this GitHub repository,
-3. Edit the App's [`config.php`](applications/default/config.php) script and set value for `DEMO_NBR` PHP constant to `1`, `2` or `3` to display the App demo for the `classic`, `office` or `custom` page layout.
+3. Edit the App's [`config.php`](applications/default/app/config.php) script and set value for `DEMO_NBR` PHP constant to `1`, `2` or `3` to display the App demo for the `classic`, `office` or `custom` page layout.
